@@ -98,3 +98,28 @@ Open a Pull Request
 TODO
 
 Finish the details page for the movie to ensure that the code runs and is very efficiant.
+
+
+movie-database-app/
+├── public/
+├── src/
+│ ├── app/
+│ │ ├── components/
+│ │ │ ├── MovieDetails.tsx
+│ │ │ ├── MovieList.tsx
+│ │ │ ├── SearchBar.tsx
+│ │ └── pages/
+│ │ ├── index.tsx
+│ │ ├── _app.tsx
+│ │ ├── movie-details.tsx
+│ ├── store/
+│ │ ├── moviesSlice.ts
+│ │ ├── index.ts
+│ ├── types/
+│ ├── Movie.ts
+├── .env.local.example
+├── .gitignore
+├── README.md
+├── package.json
+├── tsconfig.json
+└── next.config.js
