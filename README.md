@@ -93,3 +93,8 @@ Create your Feature Branch (git checkout -b feature/AmazingFeature)
 Commit your Changes (git commit -m 'Add some AmazingFeature')
 Push to the Branch (git push origin feature/AmazingFeature)
 Open a Pull Request
+
+
+TODO
+
+Finish the details page for the movie to ensure that the code runs and is very efficiant.
