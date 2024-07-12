@@ -21,8 +21,9 @@
     object-fit: cover;
   }
   
-  .movie-details {
+  .movie-details-01 {
     padding: 20px;
+    color: grey;
   }
   
   .movie-title {
@@ -82,8 +83,10 @@
   }
   
   .about-button{
-    color: lightskyblue;
-    border: 1 solid red;
+    color: rgb(20, 97, 108);
+    border: 2 solid black;
+    background-color: #97d3ce;
+    border-radius: 10px;
   }
   .about-button :hover{
     color: black;
@@ -103,3 +106,76 @@
     height:40vh;
     
   }
+
+  /* Styles for the movie details page */
+.movie-list-01 {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.movie-item-01 {
+  width: 90%;
+  max-width: 800px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.movie-item-01 img {
+  width: 40%;
+  height: auto;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.movie-details {
+  width: 70%;
+  padding: 21px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.movie-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.movie-details p {
+  margin: 10px 0;
+  color: #555;
+  font-size: 16px;
+}
+
+.movie-details p.expanded {
+  white-space: normal;
+}
+
+.view-more-btn {
+  align-self: flex-start;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.view-more-btn:hover {
+  background-color: #0056b3;
+}
+
+.movie-release,
+.movie-rating {
+  font-weight: bold;
+}

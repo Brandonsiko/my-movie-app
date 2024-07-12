@@ -86,18 +86,20 @@ const MovieList: React.FC = () => {
         return <ul className="movie-list-01">
         <li key={movie.id} className="movie-item-01">
             <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
-            <div className="movie-details">
+            <div className="movie-details-01">
                 <h2 className="movie-title">{movie.title}</h2>
                 <p className={` ${expandedMovieId === movie.id ? 'expanded' : ''}`}>
                     {movie.overview}
                 </p>
-                {movie.overview.length > 120 && (
-                    <button className="view-more-btn" onClick={() => toggleExpanded(movie.id)}>
-                    {expandedMovieId === movie.id ? 'Show Less' : 'View More'}
+                {movie.overview.length > 200 && (
+                    <button className="" onClick={() => toggleExpanded(movie.id)}>
+                    {expandedMovieId === movie.id ? '' : ''}
                     </button>
                 )}
                 <p className="movie-release">Release Date: {movie.release_date}</p>
-                <p className="movie-rating">Rating: {movie.vote_average}</p>
+                <p className="movie-rating">Vote Rating: {movie.vote_average}</p>
+                <p>the movie popularity{movie.popularity}</p>
+                <p>{movie.release_date}</p>
             </div>
             <hr />
       </li>
@@ -117,13 +119,13 @@ const MovieList: React.FC = () => {
                 {movie.overview}
               </p>
               {movie.overview.length > 120 && (
-                <button className="view-more-btn" onClick={() => toggleExpanded(movie.id)}>
-                  {expandedMovieId === movie.id ? 'Show Less' : 'View More'}
+                <button className="" onClick={() => toggleExpanded(movie.id)}>
+                  {expandedMovieId === movie.id ? '' : ''}
                 </button>
               )}
               <p className="movie-release">Release Date: {movie.release_date}</p>
               <p className="movie-rating">Rating: {movie.vote_average}</p>
-              <button className='about-button' key={movie.id}  onClick={() => handleMovieClick(movie)}>about</button>
+              <button className='about-button' key={movie.id}  onClick={() => handleMovieClick(movie)}> Details</button>
             </div>
             <hr />
           </li>
