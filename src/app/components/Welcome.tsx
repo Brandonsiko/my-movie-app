@@ -1,25 +1,23 @@
 import React, { useState, useEffect } from 'react';
-//import { useHistory } from 'react-router-dom';
-import PopcornImage from "../vecteezy_ai-generated-fresh-and-delicious-butter-popcorn-isolated-on_38280612.png"
 import { useDispatch, useSelector } from 'react-redux';
-//import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { RootState } from '../store';
-import { setMovies, setLoading, setError, selectMovie } from '../store/moviesSlice';
+import { setMovies, setLoading, setError, selectMovie,setDisplay } from '../store/moviesSlice';
 import { Movie } from '../types/Movie';
 import './movielist.css';
 
-const MovieList: React.FC = () => {
+const Welcome: React.FC = () => {
   const dispatch = useDispatch();
-  //const navigate = useNavigate();
-  const movie =useSelector((state:RootState) => state.movies.selectedMovie);
+  const movie = useSelector((state:RootState) => state.movies.selectedMovie);
   const movies = useSelector((state: RootState) => state.movies.movies);
   const loading = useSelector((state: RootState) => state.movies.loading);
   const error = useSelector((state: RootState) => state.movies.error);
   const [expandedMovieId, setExpandedMovieId] = useState<number | null>(null);
 
+
+
   useEffect(() => {
-    //On De
+
     const fetchMovies = async () => {
       dispatch(setLoading(true));
       const url =
@@ -28,13 +26,14 @@ const MovieList: React.FC = () => {
         method: 'GET',
         headers: {
           accept: 'application/json',
+          //For the sake of portfolio I am enabling the api key.
           Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMjJkNDRiNmQ2ODJjOWJhZWI4YjRkMzljZDQ5ODdiYSIsIm5iZiI6MTcyMDUzNjAxNy4yOTc1OTcsInN1YiI6IjY2OGQ0YTUzMWVmOTRmZGNiM2YzNjI2NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BCggYeQY_JJbZ3a6bSIyvYqyP40Jx9AurKVPA91uUlg',
         },
       };
-
+      
       try {
         const response = await axios.get(url, options);
-        dispatch(setMovies(response.data.results));
+        dispatch(setDisplay(response.data.results));
       } catch (error) {
         console.error('Error fetching movies:', error);
         dispatch(setError('Failed to fetch movies: ' + error));
@@ -46,6 +45,8 @@ const MovieList: React.FC = () => {
     fetchMovies();
   }, [dispatch]);
 
+
+  //This is the Toggle Button with a movie id and set MOVIE id
   const toggleExpanded = (movieId: number) => {
     if (expandedMovieId === movieId) {
       setExpandedMovieId(null);
@@ -53,7 +54,8 @@ const MovieList: React.FC = () => {
       setExpandedMovieId(movieId);
     }
   };
-
+  
+  //Handle Movie  Click
   const handleMovieClick = (movie: Movie) => {
 
     try {
@@ -70,26 +72,23 @@ const MovieList: React.FC = () => {
     
   };
 
-
+  const firstMovie = movies[0];
+  const remainingMovies = movies.slice(1);
   const NoDataStyle={height:"30vh",justifyContent:"center",display:"flex",alignItems:"center"}
-  //This section shows the current State!
+
   if (loading) {
     return <div>Loading...</div>;
   }
-  //This returns an error
+
   if (error) {
     return <div>{error}</div>;
   }
-
-  //Error Handeling when the length of the movies is 0 
   if(movies.length==0){
     return <div style={NoDataStyle}>
-        <h1>There's No Movies to Display at this time...</h1>
+        <h1>There are No Movies to Display at this time...</h1>
         
     </div>
   }
-
-  //this is a detailed psrt when a movie is called!
    if(movie){
         return <div>
                   <ul className="movie-list-01">
@@ -122,6 +121,16 @@ const MovieList: React.FC = () => {
   return (
     <div>
       <h1>Movies</h1>
+      <div className="welcome-movie">
+        <div className='Welcome-message'>
+          <h2>Snuggle Up, Its Movie Time</h2>
+        </div>
+        {movies.map((movie)=>(
+             <img src={`http://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+        ))}
+       
+     
+      </div>
 
       <ul className="movie-list">
         {movies.map((movie) => (
@@ -143,4 +152,4 @@ const MovieList: React.FC = () => {
   );
 };
 
-export default MovieList;
+export default Welcome;

@@ -12,7 +12,7 @@
     background-color: #f2f2f2;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 2px 3px 2px whitesmoke;
   }
   
   .movie-item img {
@@ -178,4 +178,31 @@
 .movie-release,
 .movie-rating {
   font-weight: bold;
+}
+
+
+.welcome-movie {
+  margin-bottom: 20px;
+}
+
+.welcome-movie img {
+  width: 20%;
+  height: 15vh;
+  object-fit: cover;
+  opacity: 10%;
+}
+
+.Welcome-message{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 60vh;
+  color: red;
+}
+.Welcome-message h2{
+  font-size: 3.5vw;
+  width: 40%;
+  text-shadow: 4px 4px 5px rgba(238, 10, 10, 0.267);
 }

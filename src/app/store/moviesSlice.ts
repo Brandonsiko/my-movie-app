@@ -24,6 +24,9 @@ const movieSlice = createSlice({
     setMovies(state, action: PayloadAction<Movie[]>) {
       state.movies = action.payload;
     },
+    setDisplay(state,action:PayloadAction<Movie[]>){
+      state.movies = action.payload;
+    },
     selectMovie(state, action: PayloadAction<Movie>) {
       state.selectedMovie = action.payload;
     },
@@ -40,5 +43,5 @@ const movieSlice = createSlice({
   },
 });
 
-export const { setMovies, selectMovie, clearSelectedMovie, setLoading, setError } = movieSlice.actions;
+export const { setDisplay,setMovies, selectMovie, clearSelectedMovie, setLoading, setError } = movieSlice.actions;
 export default movieSlice.reducer;

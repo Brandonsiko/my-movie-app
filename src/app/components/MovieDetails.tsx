@@ -10,7 +10,7 @@ const MovieDetails: React.FC = () => {
     return <div>No movie selected.</div>;
   }
   
-
+  //this is a section for movie detail.
   return (
     <div>
       <h2>{selectedMovie.title}</h2>
